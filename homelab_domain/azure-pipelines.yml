@@ -1,0 +1,86 @@
+parameters:
+  - name: terraformVersion
+    type: string
+    default: 'latest'
+
+trigger:
+- none
+
+stages:
+  - stage: 'HomelabDomainRecords'
+    dependsOn: []
+    displayName: 'Homelab Domain Records'
+
+    jobs:
+      - job: 'terraforminitplan'
+        displayName: 'Initialize and Plan Terraform for Homelab Domain Records'
+        pool: Self-Hosted
+
+        steps:
+
+          - task: TerraformInstaller@0
+            displayName: 'Terraform Install'
+            inputs:
+              terraformVersion: ${{ parameters.terraformVersion }}
+  
+          - task: CmdLine@2       
+            inputs:
+              script: |
+                terraform init -backend-config="/terraform/variables/terraform-cloudflare/backend_cloudflare_homelab_domain.tf"
+              workingDirectory: '$(System.DefaultWorkingDirectory)/homelab_domain/'
+
+          - task: CmdLine@2
+            inputs:
+              script: |
+                terraform plan -var-file="/terraform/variables/terraform-cloudflare/homelab_domain_vars.tfvars" -out ${BUILD_BUILDNUMBER}.tfplan
+              workingDirectory: '$(System.DefaultWorkingDirectory)/homelab_domain/'
+
+          - task: ArchiveFiles@2
+            condition: and(succeeded(), ne(variables['Build.Reason'], 'PullRequest'))
+            displayName: 'Create Plan Artifact'
+            inputs:
+              rootFolderOrFile: '$(System.DefaultWorkingDirectory)/homelab_domain/'
+              includeRootFolder: false
+              archiveType: 'tar'
+              tarCompression: 'gz'
+              archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildNumber).tgz'
+              replaceExistingArchive: true
+            
+          - task: PublishPipelineArtifact@1
+            condition: and(succeeded(), ne(variables['Build.Reason'], 'PullRequest'))
+            displayName: 'Publish Plan Artifact'
+            inputs:
+              targetPath: '$(Build.ArtifactStagingDirectory)'
+              artifactName: 'cloudflare-homelab-domain-plan'
+
+  - stage: 'HomelabDomainRecordsApply'
+    dependsOn: 'HomelabDomainRecords'
+    displayName: Homelab Domain Records Apply
+
+    jobs:
+      - deployment: 'TerraformApplyHomelabDomainRecords'   
+        displayName: ' Apply Terraform for Homelab Domain Records'
+        pool: Self-Hosted
+        environment: 'Cloudflare'
+        strategy:
+          runOnce:
+            deploy:
+              steps:
+
+              - task: TerraformInstaller@0
+                displayName: 'Terraform Install'
+                inputs:
+                  terraformVersion: ${{ parameters.terraformVersion }}
+                  
+              - task: ExtractFiles@1
+                displayName: 'Extract Plan Artifact'
+                inputs:
+                  archiveFilePatterns: '$(Pipeline.Workspace)/cloudflare-homelab-domain-plan/$(Build.BuildNumber).tgz'
+                  destinationFolder: '$(System.DefaultWorkingDirectory)/homelab_domain/'
+                  cleanDestinationFolder: true
+
+              - task: CmdLine@2
+                inputs:
+                  script: |
+                    terraform apply ${BUILD_BUILDNUMBER}.tfplan
+                  workingDirectory: '$(System.DefaultWorkingDirectory)/homelab_domain/'

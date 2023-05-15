@@ -1,0 +1,86 @@
+parameters:
+  - name: terraformVersion
+    type: string
+    default: 'latest'
+
+trigger:
+- none
+
+stages:
+  - stage: 'PersonalDomainRecords'
+    dependsOn: []
+    displayName: 'Personal Domain Records'
+
+    jobs:
+      - job: 'terraforminitplan'
+        displayName: 'Initialize and Plan Terraform for Personal Domain Records'
+        pool: Self-Hosted
+
+        steps:
+
+          - task: TerraformInstaller@0
+            displayName: 'Terraform Install'
+            inputs:
+              terraformVersion: ${{ parameters.terraformVersion }}
+  
+          - task: CmdLine@2       
+            inputs:
+              script: |
+                terraform init -backend-config="/terraform/variables/terraform-cloudflare/backend_cloudflare_personal_domain.tf"
+              workingDirectory: '$(System.DefaultWorkingDirectory)/personal_domain/'
+
+          - task: CmdLine@2
+            inputs:
+              script: |
+                terraform plan -var-file="/terraform/variables/terraform-cloudflare/personal_domain_vars.tfvars" -out ${BUILD_BUILDNUMBER}.tfplan
+              workingDirectory: '$(System.DefaultWorkingDirectory)/personal_domain/'
+
+          - task: ArchiveFiles@2
+            condition: and(succeeded(), ne(variables['Build.Reason'], 'PullRequest'))
+            displayName: 'Create Plan Artifact'
+            inputs:
+              rootFolderOrFile: '$(System.DefaultWorkingDirectory)/personal_domain/'
+              includeRootFolder: false
+              archiveType: 'tar'
+              tarCompression: 'gz'
+              archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildNumber).tgz'
+              replaceExistingArchive: true
+            
+          - task: PublishPipelineArtifact@1
+            condition: and(succeeded(), ne(variables['Build.Reason'], 'PullRequest'))
+            displayName: 'Publish Plan Artifact'
+            inputs:
+              targetPath: '$(Build.ArtifactStagingDirectory)'
+              artifactName: 'cloudflare-personal-domain-plan'
+
+  - stage: 'PersonalDomainRecordsApply'
+    dependsOn: 'PersonalDomainRecords'
+    displayName: Personal Domain Records Apply
+
+    jobs:
+      - deployment: 'TerraformApplyPersonalDomainRecords'   
+        displayName: ' Apply Terraform for Personal Domain Records'
+        pool: Self-Hosted
+        environment: 'Cloudflare'
+        strategy:
+          runOnce:
+            deploy:
+              steps:
+
+              - task: TerraformInstaller@0
+                displayName: 'Terraform Install'
+                inputs:
+                  terraformVersion: ${{ parameters.terraformVersion }}
+                  
+              - task: ExtractFiles@1
+                displayName: 'Extract Plan Artifact'
+                inputs:
+                  archiveFilePatterns: '$(Pipeline.Workspace)/cloudflare-personal-domain-plan/$(Build.BuildNumber).tgz'
+                  destinationFolder: '$(System.DefaultWorkingDirectory)/personal_domain/'
+                  cleanDestinationFolder: true
+
+              - task: CmdLine@2
+                inputs:
+                  script: |
+                    terraform apply ${BUILD_BUILDNUMBER}.tfplan
+                  workingDirectory: '$(System.DefaultWorkingDirectory)/personal_domain/'
