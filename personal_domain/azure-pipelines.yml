@@ -33,13 +33,13 @@ stages:
           - task: CmdLine@2       
             inputs:
               script: |
-                terraform init -backend-config="/terraform/variables/terraform-cloudflare/backend_cloudflare.tf"
+                terraform init -backend-config="/terraform/variables/terraform-cloudflare/personal_domain/backend_cloudflare_personal_domain.tf"
               workingDirectory: '$(System.DefaultWorkingDirectory)/personal_domain/'
 
           - task: CmdLine@2
             inputs:
               script: |
-                terraform plan -var-file="/terraform/variables/terraform-cloudflare/personal_domain_vars.tfvars" -out ${BUILD_BUILDNUMBER}.tfplan
+                terraform plan -var-file="/terraform/variables/terraform-cloudflare/personal_domain/personal_domain_vars.tfvars" -out ${BUILD_BUILDNUMBER}.tfplan
               workingDirectory: '$(System.DefaultWorkingDirectory)/personal_domain/'
 
           - task: ArchiveFiles@2
