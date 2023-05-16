@@ -54,6 +54,7 @@ No modules.
 | <a name="input_a_record_5_value"></a> [a\_record\_5\_value](#input\_a\_record\_5\_value) | Value of A record | `string` | n/a | yes |
 | <a name="input_a_record_6_name"></a> [a\_record\_6\_name](#input\_a\_record\_6\_name) | Name of A record | `string` | n/a | yes |
 | <a name="input_a_record_6_value"></a> [a\_record\_6\_value](#input\_a\_record\_6\_value) | Value of A record | `string` | n/a | yes |
+| <a name="input_cloudflare_api_token"></a> [cloudflare\_api\_token](#input\_cloudflare\_api\_token) | Cloudflare API Token | `string` | n/a | yes |
 | <a name="input_cloudflare_zone_id"></a> [cloudflare\_zone\_id](#input\_cloudflare\_zone\_id) | ID of Cloudflare Zone | `string` | n/a | yes |
 | <a name="input_cname_record_1_name"></a> [cname\_record\_1\_name](#input\_cname\_record\_1\_name) | Name of CNAME record | `string` | n/a | yes |
 | <a name="input_cname_record_1_value"></a> [cname\_record\_1\_value](#input\_cname\_record\_1\_value) | Value of CNAME record | `string` | n/a | yes |
