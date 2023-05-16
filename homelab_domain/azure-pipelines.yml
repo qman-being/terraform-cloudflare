@@ -26,7 +26,7 @@ stages:
           - task: CmdLine@2       
             inputs:
               script: |
-                terraform init -backend-config="/terraform/variables/terraform-cloudflare/backend_cloudflare_homelab_domain.tf"
+                terraform init -backend-config="/terraform/variables/terraform-cloudflare/backend_cloudflare.tf"
               workingDirectory: '$(System.DefaultWorkingDirectory)/homelab_domain/'
 
           - task: CmdLine@2
