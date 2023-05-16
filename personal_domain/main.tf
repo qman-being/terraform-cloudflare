@@ -91,28 +91,55 @@ resource "cloudflare_record" "mx_record_1" {
 resource "cloudflare_record" "srv_record_1" {
   zone_id = var.cloudflare_zone_id
   name    = var.srv_record_1_name
-  value   = var.srv_record_1_value
   type    = "SRV"
   ttl     = 3600
   comment = local.comment
+
+  data {
+    service  = var.srv_record_1_service
+    proto    = var.srv_record_1_proto
+    name     = var.srv_record_1_srv_name
+    priority = var.srv_record_1_priority
+    weight   = var.srv_record_1_weight
+    port     = var.srv_record_1_port
+    target   = var.srv_record_1_target
+  }
 }
 
 resource "cloudflare_record" "srv_record_2" {
   zone_id = var.cloudflare_zone_id
   name    = var.srv_record_2_name
-  value   = var.srv_record_2_value
   type    = "SRV"
   ttl     = 3600
   comment = local.comment
+
+  data {
+    service  = var.srv_record_2_service
+    proto    = var.srv_record_2_proto
+    name     = var.srv_record_2_srv_name
+    priority = var.srv_record_2_priority
+    weight   = var.srv_record_2_weight
+    port     = var.srv_record_2_port
+    target   = var.srv_record_2_target
+  }
 }
 
 resource "cloudflare_record" "srv_record_3" {
   zone_id = var.cloudflare_zone_id
   name    = var.srv_record_3_name
-  value   = var.srv_record_3_value
   type    = "SRV"
   ttl     = 3600
   comment = local.comment
+
+  data {
+    service  = var.srv_record_3_service
+    proto    = var.srv_record_3_proto
+    name     = var.srv_record_3_srv_name
+    priority = var.srv_record_3_priority
+    weight   = var.srv_record_3_weight
+    port     = var.srv_record_3_port
+    target   = var.srv_record_3_target
+  }
 }
 
 # TXT Records

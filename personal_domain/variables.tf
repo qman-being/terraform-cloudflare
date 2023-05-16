@@ -113,19 +113,109 @@ variable "srv_record_3_name" {
   description = "Name of SRV record"
 }
 
-variable "srv_record_1_value" {
+variable "srv_record_1_service" {
   type        = string
-  description = "Value of SRV record"
+  description = "Value of SRV record service"
 }
 
-variable "srv_record_2_value" {
+variable "srv_record_1_proto" {
   type        = string
-  description = "Value of SRV record"
+  description = "Value of SRV record proto"
 }
 
-variable "srv_record_3_value" {
+variable "srv_record_1_srv_name" {
   type        = string
-  description = "Value of SRV record"
+  description = "Value of SRV record name"
+}
+
+variable "srv_record_1_priority" {
+  type        = string
+  description = "Value of SRV record priority"
+}
+
+variable "srv_record_1_weight" {
+  type        = string
+  description = "Value of SRV record weight"
+}
+
+variable "srv_record_1_port" {
+  type        = string
+  description = "Value of SRV record port"
+}
+
+variable "srv_record_1_target" {
+  type        = string
+  description = "Value of SRV record target"
+}
+
+variable "srv_record_2_service" {
+  type        = string
+  description = "Value of SRV record service"
+}
+
+variable "srv_record_2_proto" {
+  type        = string
+  description = "Value of SRV record proto"
+}
+
+variable "srv_record_2_srv_name" {
+  type        = string
+  description = "Value of SRV record name"
+}
+
+variable "srv_record_2_priority" {
+  type        = string
+  description = "Value of SRV record priority"
+}
+
+variable "srv_record_2_weight" {
+  type        = string
+  description = "Value of SRV record weight"
+}
+
+variable "srv_record_2_port" {
+  type        = string
+  description = "Value of SRV record port"
+}
+
+variable "srv_record_2_target" {
+  type        = string
+  description = "Value of SRV record target"
+}
+
+variable "srv_record_3_service" {
+  type        = string
+  description = "Value of SRV record service"
+}
+
+variable "srv_record_3_proto" {
+  type        = string
+  description = "Value of SRV record proto"
+}
+
+variable "srv_record_3_srv_name" {
+  type        = string
+  description = "Value of SRV record name"
+}
+
+variable "srv_record_3_priority" {
+  type        = string
+  description = "Value of SRV record priority"
+}
+
+variable "srv_record_3_weight" {
+  type        = string
+  description = "Value of SRV record weight"
+}
+
+variable "srv_record_3_port" {
+  type        = string
+  description = "Value of SRV record port"
+}
+
+variable "srv_record_3_target" {
+  type        = string
+  description = "Value of SRV record target"
 }
 
 variable "txt_record_1_name" {
