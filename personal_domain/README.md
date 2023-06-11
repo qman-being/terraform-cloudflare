@@ -1,3 +1,5 @@
+[![Build Status](https://dev.azure.com/qman-being/homelab/_apis/build/status%2Fterraform-cloudflare%2FCloudflare%20-%20Personal%20Domain?branchName=main)](https://dev.azure.com/qman-being/homelab/_build/latest?definitionId=48&branchName=main)
+
 # personal_domain
 
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
