@@ -6,6 +6,7 @@ resource "cloudflare_record" "a_record_1" {
   value   = var.a_record_1_value
   type    = "A"
   ttl     = 3600
+  proxied = "true"
   comment = local.comment
 }
 
@@ -15,6 +16,7 @@ resource "cloudflare_record" "a_record_2" {
   value   = var.a_record_2_value
   type    = "A"
   ttl     = 3600
+  proxied = "true"
   comment = local.comment
 }
 
@@ -24,6 +26,7 @@ resource "cloudflare_record" "a_record_3" {
   value   = var.a_record_3_value
   type    = "A"
   ttl     = 3600
+  proxied = "true"
   comment = local.comment
 }
 
@@ -42,6 +45,7 @@ resource "cloudflare_record" "a_record_5" {
   value   = var.a_record_5_value
   type    = "A"
   ttl     = 3600
+  proxied = "true"
   comment = local.comment
 }
 
@@ -51,6 +55,7 @@ resource "cloudflare_record" "a_record_6" {
   value   = var.a_record_6_value
   type    = "A"
   ttl     = 3600
+  proxied = "true"
   comment = local.comment
 }
 
@@ -62,6 +67,7 @@ resource "cloudflare_record" "cname_record_1" {
   value   = var.cname_record_1_value
   type    = "CNAME"
   ttl     = 3600
+  proxied = "true"
   comment = local.comment
 }
 
@@ -71,6 +77,7 @@ resource "cloudflare_record" "cname_record_2" {
   value   = var.cname_record_2_value
   type    = "CNAME"
   ttl     = 3600
+  proxied = "true"
   comment = local.comment
 }
 
