@@ -6,13 +6,13 @@
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.0 |
-| <a name="requirement_cloudflare"></a> [cloudflare](#requirement\_cloudflare) | 4.5.0 |
+| <a name="requirement_cloudflare"></a> [cloudflare](#requirement\_cloudflare) | 4.7.1 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_cloudflare"></a> [cloudflare](#provider\_cloudflare) | 4.5.0 |
+| <a name="provider_cloudflare"></a> [cloudflare](#provider\_cloudflare) | 4.7.1 |
 
 ## Modules
 
@@ -22,21 +22,21 @@ No modules.
 
 | Name | Type |
 |------|------|
-| [cloudflare_record.a_record_1](https://registry.terraform.io/providers/cloudflare/cloudflare/4.5.0/docs/resources/record) | resource |
-| [cloudflare_record.a_record_2](https://registry.terraform.io/providers/cloudflare/cloudflare/4.5.0/docs/resources/record) | resource |
-| [cloudflare_record.a_record_3](https://registry.terraform.io/providers/cloudflare/cloudflare/4.5.0/docs/resources/record) | resource |
-| [cloudflare_record.a_record_4](https://registry.terraform.io/providers/cloudflare/cloudflare/4.5.0/docs/resources/record) | resource |
-| [cloudflare_record.a_record_5](https://registry.terraform.io/providers/cloudflare/cloudflare/4.5.0/docs/resources/record) | resource |
-| [cloudflare_record.a_record_6](https://registry.terraform.io/providers/cloudflare/cloudflare/4.5.0/docs/resources/record) | resource |
-| [cloudflare_record.cname_record_1](https://registry.terraform.io/providers/cloudflare/cloudflare/4.5.0/docs/resources/record) | resource |
-| [cloudflare_record.cname_record_2](https://registry.terraform.io/providers/cloudflare/cloudflare/4.5.0/docs/resources/record) | resource |
-| [cloudflare_record.mx_record_1](https://registry.terraform.io/providers/cloudflare/cloudflare/4.5.0/docs/resources/record) | resource |
-| [cloudflare_record.srv_record_1](https://registry.terraform.io/providers/cloudflare/cloudflare/4.5.0/docs/resources/record) | resource |
-| [cloudflare_record.srv_record_2](https://registry.terraform.io/providers/cloudflare/cloudflare/4.5.0/docs/resources/record) | resource |
-| [cloudflare_record.srv_record_3](https://registry.terraform.io/providers/cloudflare/cloudflare/4.5.0/docs/resources/record) | resource |
-| [cloudflare_record.txt_record_1](https://registry.terraform.io/providers/cloudflare/cloudflare/4.5.0/docs/resources/record) | resource |
-| [cloudflare_record.txt_record_2](https://registry.terraform.io/providers/cloudflare/cloudflare/4.5.0/docs/resources/record) | resource |
-| [cloudflare_record.txt_record_3](https://registry.terraform.io/providers/cloudflare/cloudflare/4.5.0/docs/resources/record) | resource |
+| [cloudflare_record.a_record_1](https://registry.terraform.io/providers/cloudflare/cloudflare/4.7.1/docs/resources/record) | resource |
+| [cloudflare_record.a_record_2](https://registry.terraform.io/providers/cloudflare/cloudflare/4.7.1/docs/resources/record) | resource |
+| [cloudflare_record.a_record_3](https://registry.terraform.io/providers/cloudflare/cloudflare/4.7.1/docs/resources/record) | resource |
+| [cloudflare_record.a_record_4](https://registry.terraform.io/providers/cloudflare/cloudflare/4.7.1/docs/resources/record) | resource |
+| [cloudflare_record.a_record_5](https://registry.terraform.io/providers/cloudflare/cloudflare/4.7.1/docs/resources/record) | resource |
+| [cloudflare_record.a_record_6](https://registry.terraform.io/providers/cloudflare/cloudflare/4.7.1/docs/resources/record) | resource |
+| [cloudflare_record.cname_record_1](https://registry.terraform.io/providers/cloudflare/cloudflare/4.7.1/docs/resources/record) | resource |
+| [cloudflare_record.cname_record_2](https://registry.terraform.io/providers/cloudflare/cloudflare/4.7.1/docs/resources/record) | resource |
+| [cloudflare_record.mx_record_1](https://registry.terraform.io/providers/cloudflare/cloudflare/4.7.1/docs/resources/record) | resource |
+| [cloudflare_record.srv_record_1](https://registry.terraform.io/providers/cloudflare/cloudflare/4.7.1/docs/resources/record) | resource |
+| [cloudflare_record.srv_record_2](https://registry.terraform.io/providers/cloudflare/cloudflare/4.7.1/docs/resources/record) | resource |
+| [cloudflare_record.srv_record_3](https://registry.terraform.io/providers/cloudflare/cloudflare/4.7.1/docs/resources/record) | resource |
+| [cloudflare_record.txt_record_1](https://registry.terraform.io/providers/cloudflare/cloudflare/4.7.1/docs/resources/record) | resource |
+| [cloudflare_record.txt_record_2](https://registry.terraform.io/providers/cloudflare/cloudflare/4.7.1/docs/resources/record) | resource |
+| [cloudflare_record.txt_record_3](https://registry.terraform.io/providers/cloudflare/cloudflare/4.7.1/docs/resources/record) | resource |
 
 ## Inputs
 
