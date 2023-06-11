@@ -5,7 +5,7 @@ resource "cloudflare_record" "a_record_1" {
   name    = var.a_record_1_name
   value   = var.a_record_1_value
   type    = "A"
-  ttl     = 3600
+  ttl     = 1
   proxied = "true"
   comment = local.comment
 }
@@ -15,7 +15,7 @@ resource "cloudflare_record" "a_record_2" {
   name    = var.a_record_2_name
   value   = var.a_record_2_value
   type    = "A"
-  ttl     = 3600
+  ttl     = 1
   proxied = "true"
   comment = local.comment
 }
@@ -25,7 +25,7 @@ resource "cloudflare_record" "a_record_3" {
   name    = var.a_record_3_name
   value   = var.a_record_3_value
   type    = "A"
-  ttl     = 3600
+  ttl     = 1
   proxied = "true"
   comment = local.comment
 }
@@ -44,7 +44,7 @@ resource "cloudflare_record" "a_record_5" {
   name    = var.a_record_5_name
   value   = var.a_record_5_value
   type    = "A"
-  ttl     = 3600
+  ttl     = 1
   proxied = "true"
   comment = local.comment
 }
@@ -54,7 +54,7 @@ resource "cloudflare_record" "a_record_6" {
   name    = var.a_record_6_name
   value   = var.a_record_6_value
   type    = "A"
-  ttl     = 3600
+  ttl     = 1
   proxied = "true"
   comment = local.comment
 }
@@ -66,7 +66,7 @@ resource "cloudflare_record" "cname_record_1" {
   name    = var.cname_record_1_name
   value   = var.cname_record_1_value
   type    = "CNAME"
-  ttl     = 3600
+  ttl     = 1
   proxied = "true"
   comment = local.comment
 }
@@ -76,7 +76,7 @@ resource "cloudflare_record" "cname_record_2" {
   name    = var.cname_record_2_name
   value   = var.cname_record_2_value
   type    = "CNAME"
-  ttl     = 3600
+  ttl     = 1
   proxied = "true"
   comment = local.comment
 }
