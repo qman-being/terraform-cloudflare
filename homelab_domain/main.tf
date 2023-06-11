@@ -168,3 +168,12 @@ resource "cloudflare_record" "txt_record_2" {
   ttl     = 3600
   comment = local.comment
 }
+
+resource "cloudflare_record" "txt_record_3" {
+  zone_id = var.cloudflare_zone_id
+  name    = var.txt_record_3_name
+  value   = var.txt_record_3_value
+  type    = "TXT"
+  ttl     = 3600
+  comment = local.comment
+}

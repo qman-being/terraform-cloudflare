@@ -36,6 +36,7 @@ No modules.
 | [cloudflare_record.srv_record_3](https://registry.terraform.io/providers/cloudflare/cloudflare/4.7.1/docs/resources/record) | resource |
 | [cloudflare_record.txt_record_1](https://registry.terraform.io/providers/cloudflare/cloudflare/4.7.1/docs/resources/record) | resource |
 | [cloudflare_record.txt_record_2](https://registry.terraform.io/providers/cloudflare/cloudflare/4.7.1/docs/resources/record) | resource |
+| [cloudflare_record.txt_record_3](https://registry.terraform.io/providers/cloudflare/cloudflare/4.7.1/docs/resources/record) | resource |
 
 ## Inputs
 
@@ -89,6 +90,8 @@ No modules.
 | <a name="input_txt_record_1_value"></a> [txt\_record\_1\_value](#input\_txt\_record\_1\_value) | Value of TXT record | `string` | n/a | yes |
 | <a name="input_txt_record_2_name"></a> [txt\_record\_2\_name](#input\_txt\_record\_2\_name) | Name of TXT record | `string` | n/a | yes |
 | <a name="input_txt_record_2_value"></a> [txt\_record\_2\_value](#input\_txt\_record\_2\_value) | Value of TXT record | `string` | n/a | yes |
+| <a name="input_txt_record_3_name"></a> [txt\_record\_3\_name](#input\_txt\_record\_3\_name) | Name of TXT record | `string` | n/a | yes |
+| <a name="input_txt_record_3_value"></a> [txt\_record\_3\_value](#input\_txt\_record\_3\_value) | Value of TXT record | `string` | n/a | yes |
 
 ## Outputs
 

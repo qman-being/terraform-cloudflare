@@ -228,12 +228,22 @@ variable "txt_record_2_name" {
   description = "Name of TXT record"
 }
 
+variable "txt_record_3_name" {
+  type        = string
+  description = "Name of TXT record"
+}
+
 variable "txt_record_1_value" {
   type        = string
   description = "Value of TXT record"
 }
 
 variable "txt_record_2_value" {
+  type        = string
+  description = "Value of TXT record"
+}
+
+variable "txt_record_3_value" {
   type        = string
   description = "Value of TXT record"
 }
